@@ -13,4 +13,5 @@
     <string name="thomas_intro_pic">Thomas</string>
     <string name="thomas_intro_button">Enter</string>
     <string name="title_screen_title">Insert Name Here sus</string>
+    <string name="settings_screen_title">Settings</string>
 </resources>
