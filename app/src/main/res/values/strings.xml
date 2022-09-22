@@ -18,4 +18,11 @@
     <string name="cancel">Cancel</string>
     <string name="timezone">Time Zone</string>
     <string name="profile_editor">Profile Editor</string>
+    <string name="City">City</string>
+    <string name="Country_Region">Country/Region</string>
+    <string name="Phone">Phone</string>
+    <string name="Invisibility">Invisibility</string>
+    <string name="Choose_Image">Choose Image</string>
+    <string name="Profile_Picture">Profile Picture</string>
+    <string name="View">View</string>
 </resources>

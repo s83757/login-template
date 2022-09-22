@@ -26,7 +26,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Name"
+        android:text="@string/City"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,26 +40,13 @@
         app:layout_constraintGuide_begin="305dp" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:text="Name"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="309dp" />
-
-    <EditText
         android:id="@+id/editTextTextPersonName5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Name"
+        android:text="@string/prompt_email"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +59,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Name"
+        android:text="@string/Phone"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
@@ -133,5 +120,45 @@
         tools:layout_editor_absoluteY="172dp"
 
         />
+
+    <Spinner
+        android:id="@+id/country_region_spinner"
+        android:layout_width="208dp"
+        android:layout_height="40dp"
+        android:spinnerMode="dropdown"
+        android:contentDescription="@string/Country_Region"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="316dp"
+
+        />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="111dp"
+        android:layout_height="40dp"
+        android:text="@string/Choose_Image"
+        android:textSize="8sp"
+        tools:layout_editor_absoluteX="284dp"
+        tools:layout_editor_absoluteY="529dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="59dp"
+        android:layout_height="38dp"
+        android:backgroundTint="#979797"
+        android:text="@string/View"
+        android:textSize="8sp"
+        tools:layout_editor_absoluteX="210dp"
+        tools:layout_editor_absoluteY="530dp" />
+
+    <TextView
+        android:id="@+id/profile_pic_label_editor"
+        android:layout_width="129dp"
+        android:layout_height="36dp"
+        android:text="@string/Profile_Picture"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="530dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
