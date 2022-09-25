@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
-    private Spinner spinner;
+    /*private Spinner spinner;
     private static final String[] paths = {"item 1", "item 2", "item 3"};
 
     @Override
@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
         }
-    }
+    }*/
+
 
 }
