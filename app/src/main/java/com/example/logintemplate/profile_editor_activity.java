@@ -24,7 +24,7 @@ public class profile_editor_activity extends AppCompatActivity {
         });
     }
     public void cancel() {
-        Intent intent = new Intent(this, );
+        //Intent intent = new Intent(this, );
     }
 
     //@Override

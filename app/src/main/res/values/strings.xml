@@ -121,6 +121,16 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+
+    <!-- search for people -->
+    <string name="Configure_Filters">Configure Filters</string>
+    <string-array name="Languages">
+        <item>English</item>
+        <item>Spanish</item>
+        <item>Chinese</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
