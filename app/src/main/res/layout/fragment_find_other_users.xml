@@ -15,18 +15,35 @@
         android:layout_margin="30dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id = "@+id/SelectLanguageFilter"
         style = "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="14dp">
 
         <AutoCompleteTextView
-            android:id="@+id/autoCompleteTextView"
+            android:id="@+id/autoCompleteTextViewLanguage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:inputType="none"
-            android:text="Urdanian" />
+            android:text="Select A Language" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id = "@+id/SelectTimeZoneFilter"
+        style = "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="14dp">
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextViewTimeZone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="none"
+            android:text="Select A Time Zone" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>

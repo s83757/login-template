@@ -29,7 +29,7 @@ public class RickRoll extends AppCompatActivity {
 
     }
     public void enterApp() {
-        Intent intent = new Intent(this, LoginActivity.class); // insert activity here
+        Intent intent = new Intent(this, InteractWithUsers.class); // insert activity here
         startActivity(intent);
     }
 }

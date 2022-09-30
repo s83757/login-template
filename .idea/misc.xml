@@ -19,7 +19,8 @@
         <entry key="app/src/main/res/layout/app_settings.xml" value="0.5" />
         <entry key="app/src/main/res/layout/content_scrolling.xml" value="0.25" />
         <entry key="app/src/main/res/layout/drop_down_layout_xml.xml" value="0.23428815733219324" />
-        <entry key="app/src/main/res/layout/fragment_find_other_users.xml" value="0.17708333333333334" />
+        <entry key="app/src/main/res/layout/fragment_find_other_users.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_kotlin_test.xml" value="0.2055996656916005" />
         <entry key="app/src/main/res/layout/fragment_saved_users.xml" value="0.2864583333333333" />
         <entry key="app/src/main/res/layout/profile_editor.xml" value="0.5" />
         <entry key="app/src/main/res/layout/title_screen_2.xml" value="0.2635416666666667" />
