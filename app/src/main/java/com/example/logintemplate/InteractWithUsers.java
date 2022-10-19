@@ -23,7 +23,7 @@ public class InteractWithUsers extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                replaceFragment(new FindOtherUsers());
+                replaceFragment(new FindOtherUsers1());
 
             }
         });

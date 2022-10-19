@@ -12,5 +12,8 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+//dependencies {
+//    implementation 'com.github.VishnuSivadasVS:Advanced-HttpURLConnection:1.2'
+//}
 rootProject.name = "Login Template"
 include ':app'

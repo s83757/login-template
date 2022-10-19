@@ -1,20 +1,21 @@
 package com.example.logintemplate;
 
+import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import com.example.logintemplate.FindOtherUsers2;
 
-import com.google.android.material.textfield.TextInputLayout;
 
-
-public class FindOtherUsers  extends Fragment {
+public class FindOtherUsers1 extends Fragment implements View.OnClickListener {
     public void establishDropdown(String[] targetArray, AutoCompleteTextView targetAutoCompleteView) {
         //String[] targetArray = getResources().getStringArray(targetArrayId);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter(requireContext(), R.layout.drop_down_layout_xml,
@@ -26,7 +27,7 @@ public class FindOtherUsers  extends Fragment {
     }
 
     private View view;
-
+    private Button begin_search_button;
 
     @Override
     public void onResume() {
@@ -47,10 +48,22 @@ public class FindOtherUsers  extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_find_other_users, container, false);
+        view = inflater.inflate(R.layout.fragment_find_other_users_1, container, false);
+        begin_search_button = view.findViewById(R.id.begin_search_button);
+        begin_search_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick() {
+                //FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                //fragmentManager.beginTransaction().show(fragmentManager.findFragmentByTag("")).remove(DetailFragment.this).commit();
+                Intent intent = new Intent(getActivity(), FindOtherUsers2.class);
+                startActivity(intent);
+            }
 
+        });
         return view;
     }
+
+
     /*
     TextInputLayout SelectLanguage;
     AutoCompleteTextView autoCompleteLanguage;
