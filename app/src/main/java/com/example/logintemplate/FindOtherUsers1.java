@@ -15,7 +15,7 @@ import android.widget.Button;
 import com.example.logintemplate.FindOtherUsers2;
 
 
-public class FindOtherUsers1 extends Fragment implements View.OnClickListener {
+public class FindOtherUsers1 extends Fragment {
     public void establishDropdown(String[] targetArray, AutoCompleteTextView targetAutoCompleteView) {
         //String[] targetArray = getResources().getStringArray(targetArrayId);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter(requireContext(), R.layout.drop_down_layout_xml,
@@ -52,9 +52,7 @@ public class FindOtherUsers1 extends Fragment implements View.OnClickListener {
         begin_search_button = view.findViewById(R.id.begin_search_button);
         begin_search_button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick() {
-                //FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                //fragmentManager.beginTransaction().show(fragmentManager.findFragmentByTag("")).remove(DetailFragment.this).commit();
+            public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), FindOtherUsers2.class);
                 startActivity(intent);
             }
