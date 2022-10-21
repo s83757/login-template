@@ -10,4 +10,6 @@
     <color name = "gray">#AFAFAF</color>
     <color name = "cancel">#AFAFAF</color>
     <color name = "primary">#FF6200EE</color>
+    <color name = "green">#00D000</color>
+    <color name = "red">#DD0000</color>
 </resources>
