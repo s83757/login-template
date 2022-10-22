@@ -12,15 +12,6 @@ import android.widget.AutoCompleteTextView;
 
 
 public class UserPageLoader extends Fragment {
-    public void establishDropdown(String[] targetArray, AutoCompleteTextView targetAutoCompleteView) {
-        //String[] targetArray = getResources().getStringArray(targetArrayId);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter(requireContext(), R.layout.drop_down_layout_xml,
-                targetArray);
-
-        //AutoCompleteTextView autoCompleteTextView = view.findViewById(R.id.autoCompleteTextViewLanguage);
-
-        targetAutoCompleteView.setAdapter(arrayAdapter);
-    }
 
     private View view;
 
@@ -28,16 +19,6 @@ public class UserPageLoader extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        establishDropdown(getResources().getStringArray(R.array.Languages), view.findViewById(R.id.autoCompleteTextViewLanguage));
-        establishDropdown(getResources().getStringArray(R.array.Time_Zones), view.findViewById(R.id.autoCompleteTextViewTimeZone));
-/*
-        String[] languages = getResources().getStringArray(R.array.Languages);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter(requireContext(), R.layout.drop_down_layout_xml,
-                languages);
-
-        AutoCompleteTextView autoCompleteTextView = view.findViewById(R.id.autoCompleteTextViewLanguage);
-
-        autoCompleteTextView.setAdapter(arrayAdapter);*/
     }
 
     @Override

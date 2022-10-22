@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +13,26 @@ import android.widget.Button;
 public class InteractWithUsers extends AppCompatActivity {
 
     Button SearchButton, SavedButton;
+
+    private String language_filter = "English";
+    private String timezone_filter = "UTC-8";
+
+    public String getLanguage_filter() {
+        return language_filter;
+    }
+
+    public void setLanguage_filter(String language_filter) {
+        this.language_filter = language_filter;
+    }
+
+    public String getTimezone_filter() {
+        return timezone_filter;
+    }
+
+    public void setTimezone_filter(String timezone_filter) {
+        this.timezone_filter = timezone_filter;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +44,7 @@ public class InteractWithUsers extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                replaceFragment(new FindOtherUsers1());
+                replaceFragment(new FilterUsers());
 
             }
         });
@@ -32,7 +53,7 @@ public class InteractWithUsers extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                replaceFragment(new SavedUsers());
+                replaceFragment(new UserPageLoader());
 
             }
         });
@@ -46,4 +67,9 @@ public class InteractWithUsers extends AppCompatActivity {
         fragmentTransaction.commit();
 
     }
+
+    public void searchUsers() {
+        replaceFragment(new UserPageLoader());
+    }
+
 }

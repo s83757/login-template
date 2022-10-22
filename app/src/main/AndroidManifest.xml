@@ -17,7 +17,7 @@
         android:theme="@style/Theme.LoginTemplate"
         tools:targetApi="31">
         <activity
-            android:name=".FindOtherUsers2"
+            android:name=".FindUsers"
             android:exported="false" />
         <activity
             android:name=".LoggedOutCenter"

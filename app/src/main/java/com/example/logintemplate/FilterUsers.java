@@ -1,10 +1,9 @@
 package com.example.logintemplate;
 
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,10 +11,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import com.example.logintemplate.FindOtherUsers2;
 
 
-public class FindOtherUsers1 extends Fragment {
+public class FilterUsers extends Fragment {
     public void establishDropdown(String[] targetArray, AutoCompleteTextView targetAutoCompleteView) {
         //String[] targetArray = getResources().getStringArray(targetArrayId);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter(requireContext(), R.layout.drop_down_layout_xml,
@@ -28,36 +26,57 @@ public class FindOtherUsers1 extends Fragment {
 
     private View view;
     private Button begin_search_button;
+    private AutoCompleteTextView dropdown_languages;
+    private AutoCompleteTextView dropdown_timezone;
 
     @Override
     public void onResume() {
         super.onResume();
         establishDropdown(getResources().getStringArray(R.array.Languages), view.findViewById(R.id.autoCompleteTextViewLanguage));
         establishDropdown(getResources().getStringArray(R.array.Time_Zones), view.findViewById(R.id.autoCompleteTextViewTimeZone));
-/*
+
+        /*
+
         String[] languages = getResources().getStringArray(R.array.Languages);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter(requireContext(), R.layout.drop_down_layout_xml,
                 languages);
 
         AutoCompleteTextView autoCompleteTextView = view.findViewById(R.id.autoCompleteTextViewLanguage);
 
-        autoCompleteTextView.setAdapter(arrayAdapter);*/
+        autoCompleteTextView.setAdapter(arrayAdapter);
+        */
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_find_other_users_1, container, false);
+        view = inflater.inflate(R.layout.fragment_filter_users, container, false);
         begin_search_button = view.findViewById(R.id.begin_search_button);
+        dropdown_languages = view.findViewById(R.id.autoCompleteTextViewLanguage);
+        dropdown_timezone = view.findViewById(R.id.autoCompleteTextViewTimeZone);
+
         begin_search_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), FindOtherUsers2.class);
-                startActivity(intent);
+                // Intent intent = new Intent(getActivity(), FindUsers.class);
+                // startActivity(intent);
+                ((InteractWithUsers) getActivity()).setLanguage_filter(
+                        dropdown_languages.getText().toString()
+                );
+
+                ((InteractWithUsers) getActivity()).setTimezone_filter(
+                        dropdown_timezone.getText().toString()
+                );
+
+                ((InteractWithUsers) getActivity()).searchUsers();
+                //getActivity().getSupportFragmentManager().popBackStack();
             }
 
         });
+
+
+
         return view;
     }
 

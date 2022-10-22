@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class FindOtherUsers2 extends AppCompatActivity {
+public class FindUsers extends AppCompatActivity {
     static String preferredLanguage;
     String preferredTimeZone;
 
