@@ -74,16 +74,16 @@ class DataBase
         }
     }
 
-    function getMatchingUsers($table, $rating, $reliability, $language)
+    function getMatchingUsers($table, $rating, $timezone, $language)
         {
             $rating = $this->prepareData($rating);
-            $reliability = $this->prepareData($reliability);
+            $timezone = $this->prepareData($timezone); // this is an int
             $language = $this->prepareData($language);
-            $this->sql = "select * from " . $table . " where username = '" . $username . "'";
+            $this->sql = "select * from " . $table . " where rating >= '" . $rating . "' and time_zone = '" . $timezone . "' and language = " $language . "'";
             $result = mysqli_query($this->connect, $this->sql);
             if ($result == false) {
                 echo "Get matching users failure";
-                return false;
+                return ["false"];
             }
             $UsersArray = mysqli_fetch_all($result, MYSQLI_NUM);
             return $UsersArray;
