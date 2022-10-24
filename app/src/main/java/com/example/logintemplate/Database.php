@@ -26,7 +26,7 @@ class DataBase
     function dbConnect()
     {
         $this->connect = mysqli_connect($this->servername, $this->username, $this->password, $this->databasename);
-        echo "sql connect code " . mysqli_connect_error();
+        //echo "sql connect code " . mysqli_connect_error() . "\n";
         //if (mysqli_connect_errno($con)) {
         //    echo "Failed to connect to MySQL: " . mysqli_connect_error();
         //}
@@ -39,18 +39,19 @@ class DataBase
         #Escapes special characters in a string for use in an SQL statement, taking into account the current charset of the connection
     }
 
-    function logIn($table, $username, $password)
+    function logIn($table, $email, $password)
     {
-        $username = $this->prepareData($username);
+        $email = $this->prepareData($email);
         $password = $this->prepareData($password);
-        $this->sql = "select * from " . $table . " where username = '" . $username . "'";
+        $this->sql = "select * from " . $table . " where email = '" . $email . "'";
         $result = mysqli_query($this->connect, $this->sql);
-        //$row = mysqli_fetch_assoc($result);
-        echo mysqli_num_rows($result);
+        $row = mysqli_fetch_assoc($result);
+        //echo mysqli_num_rows($result);
+        //echo $row;
         if (mysqli_num_rows($result) != 0) {
-            $dbusername = $row['username'];
-            $dbpassword = $row['password'];
-            if ($dbusername == $username && password_verify($password, $dbpassword)) {
+            $dbemail = $row['email'];
+            $dbpassword = $row['user_password'];
+            if ($dbemail == $email && $password == $dbpassword) {
                 $login = true;
             } else $login = false;
         } else $login = false;
@@ -58,7 +59,7 @@ class DataBase
         return $login;
     }
 
-    function signUp($table, $email, $username, $password)
+    function signUp($table, $username, $email, $password)
     {
         $username = $this->prepareData($username);
         $password = $this->prepareData($password);
@@ -79,7 +80,7 @@ class DataBase
             $rating = $this->prepareData($rating);
             $timezone = $this->prepareData($timezone); // this is an int
             $language = $this->prepareData($language);
-            $this->sql = "select * from " . $table . " where rating >= '" . $rating . "' and time_zone = '" . $timezone . "' and language = " $language . "'";
+            $this->sql = "select * from " . $table . " where rating >= '" . $rating . "' and time_zone = '" . $timezone . "' and language = '" . $language . "'";
             $result = mysqli_query($this->connect, $this->sql);
             if ($result == false) {
                 echo "Get matching users failure";

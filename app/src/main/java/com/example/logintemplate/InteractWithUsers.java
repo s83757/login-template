@@ -74,7 +74,7 @@ public class InteractWithUsers extends AppCompatActivity {
         replaceFragment(new UserPageLoader());
     }
 
-    public void getData(String rating, String timezone, String language) {
+    /*public void getData(String rating, String timezone, String language) {
         //Starting Write and Read data with URL
         //Creating array for parameters
         String[] field = new String[3];
@@ -106,6 +106,6 @@ public class InteractWithUsers extends AppCompatActivity {
             }
         }
         //End Write and Read data with URL
-    }
+    }*/
 
 }

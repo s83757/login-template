@@ -73,10 +73,13 @@ public class LoginActivity2 extends AppCompatActivity {
                                 if (putData.onComplete()) {
                                     mProgressBar.setVisibility(View.GONE);
                                     String result = putData.getResult();
-                                    if (result == "Login Success") {
+                                    System.out.println(result);
+                                    System.out.println("YYYYYY");
+                                    if (result.equals("Login Success")) {
+                                        System.out.print("XXXXXXX");
                                         System.out.println(result);
                                         Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getApplicationContext(), LoginActivity2.class);
+                                        Intent intent = new Intent(getApplicationContext(), InteractWithUsers.class);
                                         startActivity(intent);
                                         finish();
                                     } else {
@@ -122,6 +125,8 @@ public class LoginActivity2 extends AppCompatActivity {
                 }
             }
         });
+
+
         mRegister = findViewById(R.id.login_register_text);
         mRegister.setOnClickListener(new View.OnClickListener() {
             @Override
