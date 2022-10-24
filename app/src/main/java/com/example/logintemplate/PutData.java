@@ -12,15 +12,17 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 public class PutData extends Thread {
+    private String returnType;
     private String url, method;
     String result_data = "Empty";
     String[] data, field;
 
-    public PutData(String url, String method, String[] field, String[] data) {
+    public PutData(String url, String method, String[] field, String[] data, String returnType) {
         this.url = url;
         this.method = method;
         this.data = new String[data.length];
         this.field = new String[field.length];
+        this.returnType = returnType;
         System.arraycopy(field, 0, this.field, 0, field.length);
         System.arraycopy(data, 0, this.data, 0, data.length);
     }
@@ -46,15 +48,21 @@ public class PutData extends Thread {
             outputStream.close();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, iso));
-            StringBuilder result = new StringBuilder();
-            String result_line;
-            while ((result_line = bufferedReader.readLine()) != null) {
-                result.append(result_line);
+
+            if (returnType == "array") {
+
+            } else if (returnType == "string") {
+                StringBuilder result = new StringBuilder();
+                String result_line;
+                while ((result_line = bufferedReader.readLine()) != null) {
+                    result.append(result_line);
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                setData(result.toString());
             }
-            bufferedReader.close();
-            inputStream.close();
-            httpURLConnection.disconnect();
-            setData(result.toString());
+
         } catch (IOException e) {
             setData(e.toString());
         }

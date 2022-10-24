@@ -6,9 +6,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class InteractWithUsers extends AppCompatActivity {
 
@@ -70,6 +72,40 @@ public class InteractWithUsers extends AppCompatActivity {
 
     public void searchUsers() {
         replaceFragment(new UserPageLoader());
+    }
+
+    public void getData(String rating, String timezone, String language) {
+        //Starting Write and Read data with URL
+        //Creating array for parameters
+        String[] field = new String[3];
+        field[0] = "rating";
+        field[1] = "time_zone";
+        field[2] = "language";
+        //Creating array for data
+        String[] data = new String[3];
+        data[0] = rating;
+        data[1] = timezone;
+        data[2] = language;
+        PutData putData = new PutData("http://ec2-44-202-164-77.compute-1.amazonaws.com/Login.php", "POST", field, data, "array");
+        if (putData.startPut()) {
+            if (putData.onComplete()) {
+                mProgressBar.setVisibility(View.GONE);
+                String[] result = putData.getResult();
+                if (result.length() == 1) {
+                    //System.out.println(result);
+                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity2.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                    System.out.println(result);
+                }
+                //End ProgressBar (Set visibility to GONE)
+                //Log.i("PutData", result);
+            }
+        }
+        //End Write and Read data with URL
     }
 
 }

@@ -1,9 +1,9 @@
 <?php
 require "Database.php";
 $db = new DataBase();
-if (isset($_POST['rating']) && isset($_POST['timezone']) && isset($_POST['language']) {
+if (isset($_POST['rating']) && isset($_POST['time_zone']) && isset($_POST['language']) {
     if ($db->dbConnect()) {
-        if ($db->getMatchingUsers("Users", $_POST['rating'], $_POST['timezone'], $_POST['language']).length() > 1) {
+        if ($db->getMatchingUsers("Users", $_POST['rating'], $_POST['time_zone'], $_POST['language']) != ["false"]) {
             echo "Find Matching Users Success";
         } else echo "Matching users not found";
     } else echo "Error: Database connection";

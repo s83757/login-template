@@ -83,7 +83,7 @@ class DataBase
             $result = mysqli_query($this->connect, $this->sql);
             if ($result == false) {
                 echo "Get matching users failure";
-                return ["false"];
+                return array("false");
             }
             $UsersArray = mysqli_fetch_all($result, MYSQLI_NUM);
             return $UsersArray;

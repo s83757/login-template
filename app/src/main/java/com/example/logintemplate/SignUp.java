@@ -56,7 +56,7 @@ public class SignUp extends AppCompatActivity {
                             data[0] = username;
                             data[1] = email;
                             data[2] = password;
-                            PutData putData = new PutData("http://ec2-44-202-164-77.compute-1.amazonaws.com/SignUp.php", "POST", field, data);
+                            PutData putData = new PutData("http://ec2-44-202-164-77.compute-1.amazonaws.com/SignUp.php", "POST", field, data, "string");
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     signUpProgressBar.setVisibility(View.GONE);

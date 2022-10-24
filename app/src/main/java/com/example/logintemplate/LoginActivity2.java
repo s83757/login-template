@@ -68,7 +68,7 @@ public class LoginActivity2 extends AppCompatActivity {
                             String[] data = new String[2];
                             data[0] = inputEmail;
                             data[1] = inputPassword;
-                            PutData putData = new PutData("http://ec2-44-202-164-77.compute-1.amazonaws.com/Login.php", "POST", field, data);
+                            PutData putData = new PutData("http://ec2-44-202-164-77.compute-1.amazonaws.com/Login.php", "POST", field, data, "string");
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     mProgressBar.setVisibility(View.GONE);

@@ -28,7 +28,7 @@ public class PHPTestSignup extends AppCompatActivity {
                 String[] data = new String[2];
                 data[0] = "data-1";
                 data[1] = "data-2";
-                PutData putData = new PutData("http://ec2-44-202-164-77.compute-1.amazonaws.com", "POST", field, data);
+                PutData putData = new PutData("http://ec2-44-202-164-77.compute-1.amazonaws.com", "POST", field, data, "string");
                 if (putData.startPut()) {
                     if (putData.onComplete()) {
                         String result = putData.getResult();
