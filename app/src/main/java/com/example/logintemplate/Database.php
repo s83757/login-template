@@ -75,19 +75,21 @@ class DataBase
         }
     }
 
-    function getMatchingUsers($table, $rating, $timezone, $language)
+    function getMatchingUsers($table, $self_id, $rating, $timezone, $primary_language)
         {
+            $self_id = $this->prepareData($self_id);
             $rating = $this->prepareData($rating);
             $timezone = $this->prepareData($timezone); // this is an int
-            $language = $this->prepareData($language);
-            $this->sql = "select * from " . $table . " where rating >= '" . $rating . "' and time_zone = '" . $timezone . "' and language = '" . $language . "'";
+            $primary_language = $this->prepareData($primary_language);
+            $this->sql = "select * from " . $table . " where rating >= " . $rating . " and time_zone = " . $timezone . " and primary_language = '" . $primary_language . "'" . " and id != " . $self_id;
             $result = mysqli_query($this->connect, $this->sql);
             if ($result == false) {
                 echo "Get matching users failure";
-                return array("false");
+                return json_encode(array("false"));
             }
             $UsersArray = mysqli_fetch_all($result, MYSQLI_NUM);
-            return $UsersArray;
+
+            return json_encode($UsersArray);
         }
     function getSavedUsers($table, $userId) {
     //#table = savedUsers
@@ -109,7 +111,7 @@ class DataBase
         $result = mysqli_query($this->connect, $this->sql);
         if ($result == false) {
             echo "Get user data failure";
-            return false;
+            return ["false"];
         }
         $UsersData = mysqli_fetch_all($result, MYSQLI_NUM);
         mysqli_close();

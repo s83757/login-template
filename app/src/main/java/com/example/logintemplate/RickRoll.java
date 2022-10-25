@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.example.logintemplate.ui.login.LoginActivity;
 
 public class RickRoll extends AppCompatActivity {
+    //this is deactivated
     int ie = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

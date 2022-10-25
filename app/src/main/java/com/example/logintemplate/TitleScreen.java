@@ -28,7 +28,7 @@ public class TitleScreen extends AppCompatActivity {
 
     }
     public void enterApp() {
-        Intent intent = new Intent(this, RickRoll.class); // insert activity here
+        Intent intent = new Intent(this, LoggedOutCenter.class); // insert activity here
         startActivity(intent);
     }
 }

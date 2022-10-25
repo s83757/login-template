@@ -71,28 +71,33 @@ public class InteractWithUsers extends AppCompatActivity {
     }
 
     public void searchUsers() {
+        //replace info in fragment2
+        getData("1", "5", "0", "English");
         replaceFragment(new UserPageLoader());
+
     }
 
-    /*public void getData(String rating, String timezone, String language) {
+    public void getData(String self_id, String rating, String timezone, String primary_language) {
         //Starting Write and Read data with URL
         //Creating array for parameters
-        String[] field = new String[3];
-        field[0] = "rating";
-        field[1] = "time_zone";
-        field[2] = "language";
+        String[] field = new String[4];
+        field[0] = "self_id";
+        field[1] = "rating";
+        field[2] = "time_zone";
+        field[3] = "primary_language";
         //Creating array for data
-        String[] data = new String[3];
-        data[0] = rating;
-        data[1] = timezone;
-        data[2] = language;
-        PutData putData = new PutData("http://ec2-44-202-164-77.compute-1.amazonaws.com/Login.php", "POST", field, data, "array");
+        String[] data = new String[4];
+        data[0] = self_id;
+        data[1] = rating;
+        data[2] = timezone;
+        data[3] = primary_language;
+        PutData putData = new PutData("http://ec2-44-202-164-77.compute-1.amazonaws.com/GetMatchingUsers.php", "POST", field, data, "string");
         if (putData.startPut()) {
             if (putData.onComplete()) {
-                mProgressBar.setVisibility(View.GONE);
-                String[] result = putData.getResult();
+                //mProgressBar.setVisibility(View.GONE);
+                String result = putData.getResult();
                 if (result.length() == 1) {
-                    //System.out.println(result);
+                    System.out.println(result);
                     Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), LoginActivity2.class);
                     startActivity(intent);
@@ -106,6 +111,6 @@ public class InteractWithUsers extends AppCompatActivity {
             }
         }
         //End Write and Read data with URL
-    }*/
+    }
 
 }

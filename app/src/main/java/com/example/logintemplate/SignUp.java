@@ -17,6 +17,8 @@ public class SignUp extends AppCompatActivity {
 
     TextInputEditText textInputEditTextUsername, textInputEditTextEmail, textInputEditTextPassword;
     Button signUpButton;
+    Button signUpBackButton;
+
     ProgressBar signUpProgressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +30,10 @@ public class SignUp extends AppCompatActivity {
         textInputEditTextPassword = findViewById(R.id.signup_password);
         signUpButton = findViewById(R.id.sign_up_button);
         signUpProgressBar = findViewById(R.id.signup_progressbar);
+        signUpBackButton = findViewById(R.id.sign_up_back_button);
         System.out.println(textInputEditTextEmail.getText());
         System.out.println(signUpButton);
+
 
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +85,13 @@ public class SignUp extends AppCompatActivity {
                 } else {
                     Toast.makeText(getApplicationContext(), "All fields required", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+        signUpBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LoggedOutCenter.class);
+                startActivity(intent);
             }
         });
 

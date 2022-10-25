@@ -49,14 +49,15 @@ public class PutData extends Thread {
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, iso));
 
-            if (returnType == "array") {
-
-            } else if (returnType == "string") {
+            if (returnType == "string") {
                 StringBuilder result = new StringBuilder();
                 String result_line;
                 while ((result_line = bufferedReader.readLine()) != null) {
+                    System.out.println(result_line);
+                    System.out.println("reeeeeee");
                     result.append(result_line);
                 }
+
                 bufferedReader.close();
                 inputStream.close();
                 httpURLConnection.disconnect();
