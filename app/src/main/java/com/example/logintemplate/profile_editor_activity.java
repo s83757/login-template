@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.content.Intent;
 
@@ -23,6 +25,17 @@ public class profile_editor_activity extends AppCompatActivity {
             }
         });
     }
+
+    public void establishDropdown(String[] targetArray, AutoCompleteTextView targetAutoCompleteView) {
+        //String[] targetArray = getResources().getStringArray(targetArrayId);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter(getApplicationContext(), R.layout.drop_down_layout_xml,
+                targetArray);
+
+        //AutoCompleteTextView autoCompleteTextView = view.findViewById(R.id.autoCompleteTextViewLanguage);
+
+        targetAutoCompleteView.setAdapter(arrayAdapter);
+    }
+
     public void cancel() {
         //Intent intent = new Intent(this, );
     }
