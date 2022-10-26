@@ -14,8 +14,7 @@ import java.util.ArrayList;
 
 public class InteractWithUsers extends AppCompatActivity {
 
-    private Button SearchButton, SavedButton, user_prev_button, user_next_button;
-
+    private Button user_prev_button, user_next_button;
     private int current_user = 0, total_users = 0;  // The user page that you are currently viewing
     private String language_filter = "English";
     private String timezone_filter = "0";
@@ -29,16 +28,8 @@ public class InteractWithUsers extends AppCompatActivity {
         return user_info_array;
     }
 
-    public String getLanguage_filter() {
-        return language_filter;
-    }
-
     public void setLanguage_filter(String language_filter) {
         this.language_filter = language_filter;
-    }
-
-    public String getTimezone_filter() {
-        return timezone_filter;
     }
 
     public void setTimezone_filter(String timezone_filter) {
@@ -49,44 +40,35 @@ public class InteractWithUsers extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_interact_with_users);
-        SearchButton = findViewById(R.id.filter_button_id);
-        SavedButton = findViewById(R.id.search_users_id);
+        Button searchButton = findViewById(R.id.filter_button_id);
+        Button savedButton = findViewById(R.id.search_users_id);
 
         user_prev_button = findViewById(R.id.prev_button_id);
         user_next_button = findViewById(R.id.next_button_id);
 
-        user_prev_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                current_user = (current_user + total_users - 1) % total_users;
-                replaceFragment(new UserPageLoader());
-            }
+        user_prev_button.setVisibility(View.INVISIBLE);
+        user_next_button.setVisibility(View.INVISIBLE);
+
+        user_prev_button.setOnClickListener(v -> {
+            current_user = (current_user + total_users - 1) % total_users;
+            replaceFragment(new UserPageLoader());
         });
 
-        user_next_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                current_user = (current_user + 1) % total_users;
-                replaceFragment(new UserPageLoader());
-            }
+        user_next_button.setOnClickListener(v -> {
+            current_user = (current_user + 1) % total_users;
+            replaceFragment(new UserPageLoader());
         });
 
-        SearchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                replaceFragment(new FilterUsers());
-
-            }
+        searchButton.setOnClickListener(v -> {
+            replaceFragment(new FilterUsers());
+            user_prev_button.setVisibility(View.INVISIBLE);
+            user_next_button.setVisibility(View.INVISIBLE);
         });
 
-        SavedButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                replaceFragment(new UserPageLoader());
-
-            }
+        savedButton.setOnClickListener(v -> {
+            replaceFragment(new UserPageLoader());
+            user_prev_button.setVisibility(View.VISIBLE);
+            user_next_button.setVisibility(View.VISIBLE);
         });
     }
 
@@ -103,7 +85,11 @@ public class InteractWithUsers extends AppCompatActivity {
         //replace info in fragment2
         boolean pass = getData("1", "5", timezone_filter, language_filter);
 
-        if (pass) replaceFragment(new UserPageLoader());
+        if (pass) {
+            replaceFragment(new UserPageLoader());
+            user_prev_button.setVisibility(View.VISIBLE);
+            user_next_button.setVisibility(View.VISIBLE);
+        }
         else {
             Toast.makeText(getApplicationContext(), R.string.no_users_filter_found,
                     Toast.LENGTH_SHORT).show();
