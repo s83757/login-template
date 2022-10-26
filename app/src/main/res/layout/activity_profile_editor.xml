@@ -4,38 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbarStyle="insideOverlay">
-    tools:context = "com.example.logintemplate.MainActivity"
+    android:scrollbarStyle="insideOverlay"
+    tools:context = "com.example.logintemplate.MainActivity" >
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <!-- bla bla bla-->
-        <EditText
-            android:id="@+id/editTextTextPersonName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            android:text="Name"
-            app:layout_constraintEnd_toStartOf="@+id/guideline3"
-            app:layout_constraintHorizontal_bias="0.505"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="95dp" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName3"
+            android:id="@+id/editTextName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
             android:ems="10"
+            android:hint="@string/name"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:text="@string/City"
+            app:layout_constraintBottom_toTopOf="@+id/time_zone_dropdown"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="232dp" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewProfileEditor" />
+
+        <EditText
+            android:id="@+id/editTextCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="@string/City"
+            android:minHeight="48dp"
+            app:layout_constraintBottom_toTopOf="@+id/country_region_spinner"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/time_zone_dropdown" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline3"
@@ -45,46 +51,53 @@
             app:layout_constraintGuide_begin="320dp" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName5"
+            android:id="@+id/editTextEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:hint="@string/prompt_email"
+            android:inputType="textEmailAddress"
             android:minHeight="48dp"
-            android:text="@string/prompt_email"
+            app:layout_constraintBottom_toTopOf="@+id/editTextPhone"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="385dp" />
+            app:layout_constraintTop_toBottomOf="@+id/country_region_spinner" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName6"
+            android:id="@+id/editTextPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:hint="@string/Phone"
+            android:inputType="phone"
             android:minHeight="48dp"
-            android:text="@string/Phone"
+            app:layout_constraintBottom_toTopOf="@+id/button_view_profile_pic"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="458dp" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/editTextBio"
             android:layout_width="248dp"
-            android:layout_height="38dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="25dp"
             android:ems="10"
+            android:hint="@string/BiographyHint"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:text="@string/BiographyHint"
             android:textAlignment="viewStart"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/cancel_profile_edit"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintHorizontal_bias="0.777"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="606dp" />
+            app:layout_constraintTop_toBottomOf="@+id/button_view_profile_pic" />
 
         <Button
             android:id="@+id/cancel_profile_edit"
@@ -106,7 +119,6 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/design_default_color_primary"
             android:text="@string/update"
-            android:onClick="updateProfile"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
@@ -129,62 +141,87 @@
             app:layout_constraintGuide_begin="671dp" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textViewProfileEditor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="91dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="91dp"
             android:text="@string/profile_editor"
             android:textSize="40sp"
-            tools:layout_editor_absoluteX="91dp"
-            tools:layout_editor_absoluteY="16dp" />
+            app:layout_constraintBottom_toTopOf="@+id/editTextName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
-            android:id="@+id/time_zone"
+            android:id="@+id/time_zone_dropdown"
             android:layout_width="208dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:contentDescription="@string/timezone"
             android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toTopOf="@+id/editTextCity"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
-
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="170dp" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextName" />
 
         <Spinner
             android:id="@+id/country_region_spinner"
             android:layout_width="208dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+
+            android:layout_marginBottom="10dp"
             android:contentDescription="@string/Country_Region"
             android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toTopOf="@+id/editTextEmail"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
-
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="312dp" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextCity" />
 
         <Button
-            android:id="@+id/button3"
-            android:layout_width="111dp"
-            android:layout_height="40dp"
+            android:id="@+id/button_change_profile_pic"
+            android:layout_height="48dp"
+            android:layout_width="120dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="25dp"
             android:text="@string/Choose_Image"
             android:textSize="8sp"
-            tools:layout_editor_absoluteX="284dp"
-            tools:layout_editor_absoluteY="529dp" />
+            app:layout_constraintBottom_toTopOf="@+id/editTextBio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button_view_profile_pic"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/button_view_profile_pic"
             android:layout_width="59dp"
-            android:layout_height="38dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="25dp"
             android:backgroundTint="#979797"
             android:text="@string/View"
             android:textSize="8sp"
-            tools:layout_editor_absoluteX="210dp"
-            tools:layout_editor_absoluteY="530dp" />
+            app:layout_constraintBottom_toTopOf="@+id/editTextBio"
+            app:layout_constraintEnd_toStartOf="@+id/button_change_profile_pic"
+            app:layout_constraintStart_toEndOf="@+id/profile_pic_label_editor"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
 
         <TextView
             android:id="@+id/profile_pic_label_editor"
             android:layout_width="129dp"
             android:layout_height="36dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
             android:text="@string/Profile_Picture"
             android:textSize="18sp"
-            tools:layout_editor_absoluteX="56dp"
-            tools:layout_editor_absoluteY="530dp" />
+            app:layout_constraintBottom_toTopOf="@+id/editTextBio"
+            app:layout_constraintEnd_toStartOf="@+id/button_view_profile_pic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

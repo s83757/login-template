@@ -8,21 +8,26 @@ import android.view.View;
 import android.widget.Button;
 
 public class LoggedInCenter extends AppCompatActivity {
-    private Button goToInteractWithUsersButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logged_in_center);
 
-        goToInteractWithUsersButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goToInteract();
-            }
-        });
+        Button goToInteractWithUsersButton = findViewById(R.id.goToInteractWithUsersButton);
+        Button edit_profile_button = findViewById(R.id.edit_profile_button);
+
+        goToInteractWithUsersButton.setOnClickListener(view -> goToInteract());
+        edit_profile_button.setOnClickListener(view -> goToEditProfile());
+
     }
+
     private void goToInteract() {
         Intent intent = new Intent(this, InteractWithUsers.class);
+        startActivity(intent);
+    }
+
+    private void goToEditProfile() {
+        Intent intent = new Intent(this, profile_editor_activity.class);
         startActivity(intent);
     }
 }
