@@ -19,32 +19,20 @@ public class LoggedOutCenter extends AppCompatActivity {
 
     private void configureLoginButton() {
         Button goLoginButton = findViewById(R.id.goLoginButton);
-        goLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            //startActivity(new Intent(TitleScreen.this, LoginActivity.class))
-            public void onClick(View view) {
-                goLogin();
-            }
-        });
+        goLoginButton.setOnClickListener(view -> goLogin());
 
     }
     private void configureSignUpButton() {
         Button goSignUpButton = findViewById(R.id.goSignUpButton);
-        goSignUpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            //startActivity(new Intent(TitleScreen.this, LoginActivity.class))
-            public void onClick(View view) {
-                goSignUp();
-            }
-        });
+        goSignUpButton.setOnClickListener(view -> goSignUp());
 
     }
     public void goLogin() {
-        Intent intent = new Intent(this, LoginActivity2.class); // insert activity here
+        Intent intent = new Intent(this, LoginActivity2.class);
         startActivity(intent);
     }
     public void goSignUp() {
-        Intent intent = new Intent(this, SignUp.class); // insert activity here
+        Intent intent = new Intent(this, SignUp.class);
         startActivity(intent);
     }
 }
