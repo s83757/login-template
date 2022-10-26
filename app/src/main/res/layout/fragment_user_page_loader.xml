@@ -15,7 +15,7 @@
         android:background="@color/white">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/loaded_profile_pic"
             android:layout_width="245dp"
             android:layout_height="256dp"
             android:layout_gravity="center"

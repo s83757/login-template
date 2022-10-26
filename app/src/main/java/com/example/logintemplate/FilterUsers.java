@@ -61,13 +61,24 @@ public class FilterUsers extends Fragment {
             public void onClick(View v) {
                 // Intent intent = new Intent(getActivity(), FindUsers.class);
                 // startActivity(intent);
-                ((InteractWithUsers) getActivity()).setLanguage_filter(
-                        dropdown_languages.getText().toString()
-                );
 
-                ((InteractWithUsers) getActivity()).setTimezone_filter(
-                        dropdown_timezone.getText().toString()
-                );
+                String language_filter_string = dropdown_languages.getText().toString();
+
+                if (!language_filter_string.equals("Select A Language")) {
+                    ((InteractWithUsers) getActivity()).setLanguage_filter(
+                            language_filter_string
+                    );
+                }
+
+                String timezone = dropdown_timezone.getText().toString();
+
+                if (!timezone.equals("Select A Time Zone")) {
+                    timezone = timezone.substring(4);
+                    ((InteractWithUsers) getActivity()).setTimezone_filter(
+                            timezone
+                    );
+                }
+
 
                 ((InteractWithUsers) getActivity()).searchUsers();
                 //getActivity().getSupportFragmentManager().popBackStack();
