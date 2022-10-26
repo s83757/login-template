@@ -101,12 +101,17 @@ public class InteractWithUsers extends AppCompatActivity {
 
     public void searchUsers() {
         //replace info in fragment2
-        getData("1", "5", timezone_filter, language_filter);
-        replaceFragment(new UserPageLoader());
+        boolean pass = getData("1", "5", timezone_filter, language_filter);
+
+        if (pass) replaceFragment(new UserPageLoader());
+        else {
+            Toast.makeText(getApplicationContext(), R.string.no_users_filter_found,
+                    Toast.LENGTH_SHORT).show();
+        }
 
     }
 
-    public void getData(String self_id, String rating, String timezone, String primary_language) {
+    public boolean getData(String self_id, String rating, String timezone, String primary_language) {
         //Starting Write and Read data with URL
         //Creating array for parameters
         String[] field = new String[4];
@@ -126,11 +131,14 @@ public class InteractWithUsers extends AppCompatActivity {
                 //mProgressBar.setVisibility(View.GONE);
                 String result = putData.getResult();
 
-                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-                System.out.println(result);
+                // Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
 
-                result = result.substring(1, result.length() - 1);
-                String split_1[] = result.split("]");
+                result = result.substring(1, result.length() - 1);  // Outside brackets are removed
+
+                // Nothing within the result. No users found, return false.
+                if (result.length() == 0) return false;
+
+                String[] split_1 = result.split("]");
 
                 for (int i = 0; i < split_1.length; i++) {
                     if (i > 0) split_1[i] = split_1[i].substring(2);
@@ -156,8 +164,12 @@ public class InteractWithUsers extends AppCompatActivity {
 
                 //End ProgressBar (Set visibility to GONE)
                 //Log.i("PutData", result);
+
+                return true;  // People with these filters were found. Everything succeeded.
             }
         }
+
+        return false;  // If statements were not true
         //End Write and Read data with URL
     }
 }
