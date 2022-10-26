@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText mUsernameView, mEmailView, mPasswordView;
-    private Button mRegisterButton, mBackButton;
     private DBHelper mDBHelper;
 
     @Override
@@ -27,7 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
         mEmailView = findViewById(R.id.register_email);
         mPasswordView = findViewById(R.id.register_password);
 
-        mRegisterButton = findViewById(R.id.register_button);
+        Button mRegisterButton = findViewById(R.id.register_button);
         mRegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,13 +64,8 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        mBackButton = findViewById(R.id.back_button);
-        mBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        Button mBackButton = findViewById(R.id.back_button);
+        mBackButton.setOnClickListener(v -> finish());
 
     }
 

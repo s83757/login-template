@@ -15,9 +15,15 @@ public class LoggedInCenter extends AppCompatActivity {
 
         Button goToInteractWithUsersButton = findViewById(R.id.goToInteractWithUsersButton);
         Button edit_profile_button = findViewById(R.id.edit_profile_button);
+        Button logout_button = findViewById(R.id.logout_button);
 
         goToInteractWithUsersButton.setOnClickListener(view -> goToInteract());
         edit_profile_button.setOnClickListener(view -> goToEditProfile());
+        logout_button.setOnClickListener(view -> {
+            Intent intent = new Intent(this, LoginActivity2.class);
+            startActivity(intent);
+            finish();
+        });
 
     }
 

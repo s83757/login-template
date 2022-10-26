@@ -47,6 +47,7 @@ public class UserPageLoader extends Fragment {
         view = inflater.inflate(R.layout.fragment_user_page_loader, container, false);
 
         ArrayList<String[]> user_info = ((InteractWithUsers) getActivity()).getUser_info_array();
+
         current_user = ((InteractWithUsers) getActivity()).getCurrent_user();
 
         loaded_profile_pic = view.findViewById(R.id.loaded_profile_pic);

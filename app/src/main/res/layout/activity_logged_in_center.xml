@@ -27,7 +27,7 @@
         android:id="@+id/goToInteractWithUsersButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="68dp"
+        android:layout_marginBottom="130dp"
         android:backgroundTint="@color/teal_700"
         android:fontFamily="@font/maven_pro"
         android:layout_marginLeft="15dp"
@@ -40,7 +40,7 @@
 
     <Button
         android:id="@+id/edit_profile_button"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
@@ -51,6 +51,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/goToInteractWithUsersButton" />
+
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:backgroundTint="@color/gray"
+        android:fontFamily="@font/maven_pro"
+        android:text="@string/logout"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_profile_button" />
 
 
 

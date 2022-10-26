@@ -12,7 +12,7 @@
         android:id="@+id/login_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="@string/login"
         android:gravity="center"
         android:textSize="40sp"
         android:paddingTop="10dp"
@@ -20,11 +20,12 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint = "Email" >
+        android:hint = "@string/email" >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/login_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
             android:maxLines="1"
             android:singleLine="true"/>
 
@@ -33,14 +34,16 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint = "Password"
+        android:hint = "@string/password"
         android:paddingTop="5dp"
         android:paddingBottom="15dp">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/login_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="1"/>
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -58,20 +61,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id = "@+id/login_button"
-        android:text = "SIGN IN" />
+        android:text = "@string/sign_in" />
 
     <TextView
         android:id = "@+id/login_register_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text = "Register for an account"
+        android:text = "@string/register_for_an_account"
         android:gravity="center"
         android:textSize="15sp"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:id = "@+id/login_go_back"
-        android:text = "GO BACK" />
+        android:text = "@string/go_back" />
 
 </LinearLayout>

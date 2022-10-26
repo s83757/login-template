@@ -176,5 +176,13 @@
     <string name="edit_profile">Edit Profile</string>
     <string name="go_find_users">Go Find Users</string>
     <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="register_for_an_account">Register for an account</string>
+    <string name="go_back">GO BACK</string>
+    <string name="username">Username</string>
+    <string name="logout">Logout</string>
 
 </resources>

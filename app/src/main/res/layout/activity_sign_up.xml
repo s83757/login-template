@@ -21,7 +21,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint = "Username" >
+        android:hint = "@string/username" >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signup_username"
             android:layout_width="match_parent"
@@ -34,11 +34,12 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint = "Email" >
+        android:hint = "@string/email" >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signup_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
             android:maxLines="1"
             android:singleLine="true"/>
 
@@ -47,14 +48,16 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint = "Password"
-        android:paddingTop="5dp"
+        android:hint = "@string/password"
         android:paddingBottom="15dp">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signup_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="1"/>
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 

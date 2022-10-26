@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -40,8 +41,10 @@ public class InteractWithUsers extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_interact_with_users);
-        Button searchButton = findViewById(R.id.filter_button_id);
-        Button savedButton = findViewById(R.id.search_users_id);
+
+        Button exitButton = findViewById(R.id.back_button);
+        Button filterButton = findViewById(R.id.filter_button_id);
+        Button searchButton = findViewById(R.id.search_users_id);
 
         user_prev_button = findViewById(R.id.prev_button_id);
         user_next_button = findViewById(R.id.next_button_id);
@@ -59,16 +62,32 @@ public class InteractWithUsers extends AppCompatActivity {
             replaceFragment(new UserPageLoader());
         });
 
-        searchButton.setOnClickListener(v -> {
+        exitButton.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), LoggedInCenter.class);
+            startActivity(intent);
+
+            finish();
+        });
+
+        filterButton.setOnClickListener(v -> {
             replaceFragment(new FilterUsers());
             user_prev_button.setVisibility(View.INVISIBLE);
             user_next_button.setVisibility(View.INVISIBLE);
         });
 
-        savedButton.setOnClickListener(v -> {
+        searchButton.setOnClickListener(v -> {
+
+            if (user_info_array.isEmpty()) {
+                Toast.makeText(getApplicationContext(),
+                        "No filters have been chosen", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             replaceFragment(new UserPageLoader());
             user_prev_button.setVisibility(View.VISIBLE);
             user_next_button.setVisibility(View.VISIBLE);
+
+
         });
     }
 

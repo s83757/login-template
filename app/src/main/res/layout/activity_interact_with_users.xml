@@ -42,17 +42,29 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="40dp"
         android:layout_marginBottom="50dp"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="@color/teal_700"
         android:text="Filter Users" />
 
     <Button
         android:id="@+id/search_users_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="50dp"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="@color/teal_700"
         android:text="Search Users" />
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/red"
+        android:text="Exit" />
+
 </RelativeLayout>

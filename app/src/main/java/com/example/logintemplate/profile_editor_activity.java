@@ -17,12 +17,12 @@ public class profile_editor_activity extends AppCompatActivity {
         setContentView(R.layout.activity_profile_editor);
 
         Button cancelButton = (Button) findViewById(R.id.cancel_profile_edit);
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            //startActivity(new Intent(TitleScreen.this, LoginActivity.class))
-            public void onClick(View view) {
-                cancel();
-            }
+        Button updateButton = (Button) findViewById(R.id.update_profile_button);
+
+        cancelButton.setOnClickListener(view -> leave());
+        updateButton.setOnClickListener(view -> {
+            // Update changes. do SQL stuff
+            leave();
         });
     }
 
@@ -36,8 +36,9 @@ public class profile_editor_activity extends AppCompatActivity {
         targetAutoCompleteView.setAdapter(arrayAdapter);
     }
 
-    public void cancel() {
-        //Intent intent = new Intent(this, );
+    public void leave() {
+        startActivity(new Intent(getApplicationContext(), LoggedInCenter.class));
+        finish();
     }
 
     //@Override

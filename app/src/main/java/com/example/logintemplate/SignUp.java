@@ -87,12 +87,9 @@ public class SignUp extends AppCompatActivity {
                 }
             }
         });
-        signUpBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), LoggedOutCenter.class);
-                startActivity(intent);
-            }
+        signUpBackButton.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), TitleScreen.class);
+            startActivity(intent);
         });
 
 

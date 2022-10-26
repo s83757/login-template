@@ -17,123 +17,99 @@ import android.widget.Toast;
 
 public class LoginActivity2 extends AppCompatActivity {
     private EditText mEmailView, mPasswordView;
-    private Button mSignInButton;
-    private TextView mRegister;
-    private DBHelper mDBHelper;
+
+    //private DBHelper mDBHelper;
     private ProgressBar mProgressBar;
-    private TextView mLoginRegisterText;
+
+    //private TextView mLoginRegisterText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
 
-        mDBHelper = new DBHelper(this);
+        // mDBHelper = new DBHelper(this);
+
+        Button mBackButton = findViewById(R.id.login_go_back);
         mEmailView = findViewById(R.id.login_email);
         mPasswordView = findViewById(R.id.login_password);
-        mSignInButton = findViewById(R.id.login_button);
+        Button mSignInButton = findViewById(R.id.login_button);
         mProgressBar = findViewById(R.id.login_progressbar);
-        /*mLoginRegisterText = findViewById(R.id.login_register_text);
-        mLoginRegisterText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), SignUp.class);
-                startActivity(intent);
-                finish();
-            }
-        });*/
 
-        mSignInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String inputEmail = mEmailView.getText().toString().trim();
-                String inputPassword = mPasswordView.getText().toString().trim();
+        mSignInButton.setOnClickListener(v -> {
 
-                if (inputEmail.isEmpty() || inputPassword.isEmpty()) {
-                    Toast.makeText(LoginActivity2.this, "Empty Field",
-                            Toast.LENGTH_SHORT).show();
-                } else {
+            String inputEmail = mEmailView.getText().toString().trim();
+            String inputPassword = mPasswordView.getText().toString().trim();
 
-                    mProgressBar.setVisibility(View.VISIBLE);
-                    Handler handler = new Handler(Looper.getMainLooper());
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            //Starting Write and Read data with URL
-                            //Creating array for parameters
-                            String[] field = new String[2];
-                            field[0] = "email";
-                            field[1] = "password";
-                            //Creating array for data
-                            String[] data = new String[2];
-                            data[0] = inputEmail;
-                            data[1] = inputPassword;
-                            PutData putData = new PutData("http://ec2-44-202-164-77.compute-1.amazonaws.com/Login.php", "POST", field, data, "string");
-                            if (putData.startPut()) {
-                                if (putData.onComplete()) {
-                                    mProgressBar.setVisibility(View.GONE);
-                                    String result = putData.getResult();
-                                    System.out.println(result);
-                                    System.out.println("YYYYYY");
-                                    if (result.equals("Login Success")) {
-                                        System.out.print("XXXXXXX");
-                                        System.out.println(result);
-                                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getApplicationContext(), InteractWithUsers.class);
-                                        startActivity(intent);
-                                        finish();
-                                    } else {
-                                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-                                        System.out.println(result);
-                                    }
-                                    //End ProgressBar (Set visibility to GONE)
-                                    //Log.i("PutData", result);
-                                }
+            if (inputEmail.isEmpty() || inputPassword.isEmpty()) {
+                Toast.makeText(LoginActivity2.this, "Empty Field",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+
+                mProgressBar.setVisibility(View.VISIBLE);
+                Handler handler = new Handler(Looper.getMainLooper());
+                handler.post(() -> {
+                    //Starting Write and Read data with URL
+
+                    //Creating array for parameters
+                    String[] field = new String[2];
+                    field[0] = "email";
+                    field[1] = "password";
+
+                    //Creating array for data
+                    String[] data = new String[2];
+                    data[0] = inputEmail;
+                    data[1] = inputPassword;
+
+                    PutData putData = new PutData("http://ec2-44-202-164-77.compute-1.amazonaws.com/Login.php", "POST", field, data, "string");
+
+                    if (putData.startPut()) {
+                        if (putData.onComplete()) {
+
+                            mProgressBar.setVisibility(View.GONE);
+                            String result = putData.getResult();
+                            System.out.println(result);
+
+                            //System.out.println("YYYYYY");
+
+                            if (result.equals("Login Success")) {
+
+                                //System.out.print("XXXXXXX");
+
+                                System.out.println(result);
+
+                                Toast.makeText(getApplicationContext(),
+                                        result, Toast.LENGTH_SHORT).show();
+
+                                Intent intent = new Intent(getApplicationContext(), LoggedInCenter.class);
+                                startActivity(intent);
+
+                                finish();
+
+                            } else {
+                                Toast.makeText(getApplicationContext(),
+                                        result, Toast.LENGTH_SHORT).show();
+                                System.out.println(result);
                             }
-                            //End Write and Read data with URL
+                            // End ProgressBar (Set visibility to GONE)
+                            // Log.i("PutData", result);
                         }
-                    });
-
-
-                    //all fields are complete
-                    // if email is an actual email, and password and email match.
-
-                    /*
-                    SQLiteDatabase db = mDBHelper.getReadableDatabase();
-
-                    Cursor cursor = db.rawQuery("SELECT * FROM " +
-                                    DBContract.FeedEntry.TABLE_NAME + " WHERE" +
-                                    DBContract.FeedEntry.EMAIL + "='" + inputEmail+ "'" + "AND" +
-                                    DBContract.FeedEntry.PASSWORD + "='" + inputPassword + "'",
-                            null);
-
-                    if (cursor.moveToFirst()) {
-                        String username = cursor.getString(cursor.getColumnIndexOrThrow(
-                                DBContract.FeedEntry.USERNAME));
-                        Intent intent = new Intent(LoginActivity2.this, MainActivity.class);
-                        intent.putExtra("key_name", username);
-                        intent.putExtra("key_email", inputEmail);
-
-                        startActivity(intent);
-
-                    } else {
-                        Toast.makeText(LoginActivity2.this,
-                                "Email and Password do not match", Toast.LENGTH_SHORT).show();
                     }
-                    clearText();
-                    */
-                }
+                    // End Write and Read data with URL
+                });
             }
         });
 
 
-        mRegister = findViewById(R.id.login_register_text);
-        mRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent (LoginActivity2.this, RegisterActivity.class);
-                startActivity(intent);
-            }
+        TextView mRegister = findViewById(R.id.login_register_text);
+        mRegister.setOnClickListener(v -> {
+            Intent intent = new Intent (LoginActivity2.this, RegisterActivity.class);
+            startActivity(intent);
+        });
+
+        mBackButton.setOnClickListener(v -> {
+            Intent intent = new Intent (LoginActivity2.this, TitleScreen.class);
+            startActivity(intent);
         });
     }
     public void clearText() {
