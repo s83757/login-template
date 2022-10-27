@@ -118,6 +118,32 @@ class DataBase
         return $UsersData;
     }
     //mysqli_close();
+    function sendProfileUpdate($table, $self_id, $username, $person_name, $time_zone, $email, $primary_language, $DOB, $city, $country, $phone, $Pfp)
+        {
+            $self_id = this->prepareData($self_id);
+            $username = $this->prepareData($username);
+            $person_name = $this->prepareData($person_name);
+            $time_zone = $this->prepareData($time_zone);
+            $email = $this->prepareData($email);
+            $primary_language = $this->prepareData($primary_language);
+            $DOB = $this->prepareData($DOB);
+            $city = $this->prepareData($city);
+            $country = $this->prepareData($country);
+            $phone = $this->prepareData($phone);
+            $Pfp = $this->prepareData($Pfp);
+
+            $this->backup_query = "SELECT * FROM " . $table . " Where id = '" . $self_id . "'";
+            $backup = mysqli_connect($this->connect, $this->backup_query);
+
+            $this->sql =
+                "UPDATE " . $table . "SET " . "username = '" . $username . "', " . "person_name = '" . $person_name . "', " . "time_zone = '" . $time_zone . "', " . "email = '" . $email . "', " . "primary_language = '" . $primary_language . "', " . "DOB = '" . $DOB . "', " . "city = '" . $city . "', " . "country = '" . $country . "', " . "phone = '" . $phone . "', " . "Pfp = '" . $Pfp . "' " . " WHERE id = '" . $self_id . "'";
+            if (mysqli_query($this->connect, $this->sql)) {
+                return true;
+            } else {
+                echo "Signup failure";
+                return false;
+            }
+        }
 
 }
 
