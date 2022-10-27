@@ -143,6 +143,7 @@ class DataBase
                 echo "Signup failure";
                 return false;
             }
+            mysqli_close();
         }
 
 }
