@@ -37,7 +37,7 @@
             android:ems="10"
             android:hint="@string/City"
             android:minHeight="48dp"
-            app:layout_constraintBottom_toTopOf="@+id/country_region_spinner"
+            app:layout_constraintBottom_toTopOf="@+id/language_dropdown"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +64,7 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/country_region_spinner" />
+            app:layout_constraintTop_toBottomOf="@+id/language_dropdown" />
 
         <EditText
             android:id="@+id/editTextPhone"
@@ -154,32 +154,50 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Spinner
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/time_zone_dropdown"
             android:layout_width="208dp"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:contentDescription="@string/timezone"
-            android:spinnerMode="dropdown"
+            style = "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             app:layout_constraintBottom_toTopOf="@+id/editTextCity"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextName" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextName" >
 
-        <Spinner
-            android:id="@+id/country_region_spinner"
+            <AutoCompleteTextView
+                android:id="@+id/time_zone_auto_complete"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:inputType="none"
+                android:text="@string/select_a_time_zone"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/language_dropdown"
             android:layout_width="208dp"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-
             android:layout_marginBottom="10dp"
-            android:contentDescription="@string/Country_Region"
-            android:spinnerMode="dropdown"
+
+            style = "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             app:layout_constraintBottom_toTopOf="@+id/editTextEmail"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextCity" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextCity" >
+
+            <AutoCompleteTextView
+                android:id="@+id/language_auto_complete"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:inputType="none"
+                android:text="@string/select_a_language"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/button_change_profile_pic"

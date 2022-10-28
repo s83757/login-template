@@ -184,5 +184,8 @@
     <string name="go_back">GO BACK</string>
     <string name="username">Username</string>
     <string name="logout">Logout</string>
+    <string name="select_a_time_zone">Select a time zone</string>
+    <string name="select_a_region">Select a Region</string>
+    <string name="select_a_language">Select a Language</string>
 
 </resources>
