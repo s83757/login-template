@@ -60,12 +60,18 @@ public class UserPageLoader extends Fragment {
 
         String[] current_user_info = user_info.get(current_user);
 
-        loaded_profile_name.setText(current_user_info[2]);
-        loaded_profile_time_zone.setText(current_user_info[4]);
-        loaded_profile_languages.setText(current_user_info[6]);
-        loaded_profile_rating.setText(current_user_info[13]);
-        loaded_profile_bio.setText(" To Be Implemented ");
-        loaded_profile_socials.setText(current_user_info[5]);
+        loaded_profile_name.setText("Name: " + current_user_info[2]);
+        if (current_user_info[4].charAt(0) == '-') {
+            loaded_profile_time_zone.setText("Time zone: UTC-" + current_user_info[4]);
+        }
+        else{
+            loaded_profile_time_zone.setText("Time zone: UTC+" + current_user_info[4]);
+        }
+
+        loaded_profile_languages.setText("Languages: " + current_user_info[6]);
+        loaded_profile_rating.setText("Rating: " + current_user_info[14]);
+        loaded_profile_bio.setText("Bio: " + current_user_info[13]);
+        loaded_profile_socials.setText("Socials: " + current_user_info[5]);
 
         return view;
     }

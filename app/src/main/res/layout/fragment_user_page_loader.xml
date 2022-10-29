@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="500dp"
     android:fillViewport="true">
 
-    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="500dp"
-        tools:context=".UserPageLoader"
+        android:background="@color/white"
         android:orientation="vertical"
-        android:background="@color/white">
+        tools:context=".UserPageLoader">
 
         <ImageView
             android:id="@+id/loaded_profile_pic"
@@ -20,66 +21,66 @@
             android:layout_height="256dp"
             android:layout_gravity="center"
             android:layout_marginTop="40dp" />
+
         <TextView
             android:id="@+id/loaded_profile_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:textSize="30sp"
-            android:textColor="@color/black"
             android:text="Name"
-            />
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
         <TextView
             android:id="@+id/loaded_profile_languages"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:textSize="20sp"
-            android:textColor="@color/black"
             android:text="Languages:"
-            />
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
         <TextView
             android:id="@+id/loaded_profile_time_zone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:textSize="20sp"
-            android:textColor="@color/black"
             android:text="Time Zone:"
-            />
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
         <TextView
             android:id="@+id/loaded_profile_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:textSize="20sp"
-            android:textColor="@color/black"
             android:text="Rating:"
-            />
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
         <TextView
             android:id="@+id/loaded_profile_bio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:textSize="20sp"
+            android:text="Bio: "
             android:textColor="@color/black"
-            android:text="Bio:"
-            />
+            android:textSize="20sp" />
+
         <TextView
             android:id="@+id/loaded_profile_socials"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:textSize="20sp"
-            android:textColor="@color/black"
             android:text="Socials:"
-            />
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
