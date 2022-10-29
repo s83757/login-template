@@ -61,6 +61,8 @@ public class profile_editor_activity extends AppCompatActivity {
 
         EditText name_editor = findViewById(R.id.editTextName);
         EditText email_editor = findViewById(R.id.editTextEmail);
+        EditText city_editor = findViewById(R.id.editTextCity);
+        EditText phone_editor = findViewById(R.id.editTextPhone);
 
         /* Load set values into the profile editor */
 
@@ -87,6 +89,14 @@ public class profile_editor_activity extends AppCompatActivity {
         // Language
         if (!user_info_array.get(6).equals("null")) {
             dropdown_languages.setText(user_info_array.get(6));
+        }
+        // City
+        if (!user_info_array.get(8).equals("null")) {
+            city_editor.setText(user_info_array.get(8));
+        }
+        // Phone
+        if (!user_info_array.get(10).equals("null")) {
+            phone_editor.setText(user_info_array.get(10));
         }
 
 
@@ -171,17 +181,26 @@ public class profile_editor_activity extends AppCompatActivity {
         field[10] = "Pfp";
 
         //Creating array for data
+        //Future: Instead of passing array, pass object
         String[] data = new String[11];
         data[0] = user_info_array.get(0);
         data[1] = user_info_array.get(1);
-        data[2] = user_info_array.get(2);
-        data[3] = user_info_array.get(4);
-        data[4] = user_info_array.get(5);
-        data[5] = user_info_array.get(6);
+        TextView person_name_source = (TextView) findViewById(R.id.editTextName);
+        data[2] = person_name_source.getText().toString();
+        AutoCompleteTextView time_zone_source = (AutoCompleteTextView) findViewById(R.id.time_zone_auto_complete);
+        data[3] = time_zone_source.getText().toString().substring(3);
+        //TextView email_source = (TextView) findViewById(R.id.editTextEmail);
+        data[4] = user_info_array.get(5); //email_source.getText().toString();
+        AutoCompleteTextView primary_language_source = (AutoCompleteTextView) findViewById(R.id.language_auto_complete);
+        data[5] = primary_language_source.getText().toString();
+        //TextView DOB_source = (TextView) findViewById(R.id.);
         data[6] = user_info_array.get(7);
-        data[7] = user_info_array.get(8);
+        TextView city_source = (TextView) findViewById(R.id.editTextCity);
+        data[7] = city_source.getText().toString();
+        //TextView country_source = (TextView) findViewById(R.id.edit);
         data[8] = user_info_array.get(9);
-        data[9] = user_info_array.get(10);
+        TextView phone_source = (TextView) findViewById(R.id.editTextPhone);
+        data[9] = phone_source.getText().toString();
         data[10] = user_info_array.get(12);
 
         PutData putData = new PutData("http://ec2-44-202-164-77.compute-1.amazonaws.com/SendProfileUpdate.php", "POST", field, data, "string");
