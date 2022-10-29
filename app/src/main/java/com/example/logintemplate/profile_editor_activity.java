@@ -63,6 +63,7 @@ public class profile_editor_activity extends AppCompatActivity {
         EditText email_editor = findViewById(R.id.editTextEmail);
         EditText city_editor = findViewById(R.id.editTextCity);
         EditText phone_editor = findViewById(R.id.editTextPhone);
+        EditText bio_editor = findViewById(R.id.editTextBio);
 
         /* Load set values into the profile editor */
 
@@ -97,6 +98,10 @@ public class profile_editor_activity extends AppCompatActivity {
         // Phone
         if (!user_info_array.get(10).equals("null")) {
             phone_editor.setText(user_info_array.get(10));
+        }
+        // Bio
+        if (!user_info_array.get(13).equals("null")) {
+            bio_editor.setText(user_info_array.get(13));
         }
 
 
@@ -167,7 +172,7 @@ public class profile_editor_activity extends AppCompatActivity {
     }
 
     public void update() {
-        String[] field = new String[11];
+        String[] field = new String[12];
         field[0] = "self_id";
         field[1] = "username";
         field[2] = "person_name";
@@ -179,10 +184,11 @@ public class profile_editor_activity extends AppCompatActivity {
         field[8] = "country";
         field[9] = "phone";
         field[10] = "Pfp";
+        field[11] = "Bio";
 
         //Creating array for data
         //Future: Instead of passing array, pass object
-        String[] data = new String[11];
+        String[] data = new String[12];
         data[0] = user_info_array.get(0);
         data[1] = user_info_array.get(1);
         TextView person_name_source = (TextView) findViewById(R.id.editTextName);
@@ -202,6 +208,9 @@ public class profile_editor_activity extends AppCompatActivity {
         TextView phone_source = (TextView) findViewById(R.id.editTextPhone);
         data[9] = phone_source.getText().toString();
         data[10] = user_info_array.get(12);
+        TextView bio_source = (TextView) findViewById(R.id.editTextBio);
+        data[11] = bio_source.getText().toString();
+        System.out.println(data[11]);
 
         PutData putData = new PutData("http://ec2-44-202-164-77.compute-1.amazonaws.com/SendProfileUpdate.php", "POST", field, data, "string");
         if (putData.startPut()) {
