@@ -73,7 +73,10 @@ public class FilterUsers extends Fragment {
                 String timezone = dropdown_timezone.getText().toString();
 
                 if (!timezone.equals("Select A Time Zone")) {
-                    timezone = timezone.substring(4);
+                    timezone = timezone.substring(3);
+                    if (timezone.charAt(0) == '+') {
+                        timezone.substring(1);
+                    }
                     ((InteractWithUsers) getActivity()).setTimezone_filter(
                             timezone
                     );

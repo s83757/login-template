@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.content.Intent;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,16 @@ public class profile_editor_activity extends AppCompatActivity {
         establishDropdown(getResources().getStringArray(R.array.Languages), findViewById(R.id.language_auto_complete));
         establishDropdown(getResources().getStringArray(R.array.Time_Zones), findViewById(R.id.time_zone_auto_complete));
     }
+    private int signum(int x) {
+        if (x > 0) {
+            return 1;
+        } else if (x < 0) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +76,12 @@ public class profile_editor_activity extends AppCompatActivity {
 
         // Timezone
         if (!user_info_array.get(4).equals("null")) {
-            dropdown_timezones.setText(user_info_array.get(4));
+            if (user_info_array.get(4).charAt(0) == '-') {
+                dropdown_timezones.setText("UTC" + user_info_array.get(4));
+            }
+            else{
+                dropdown_timezones.setText("UTC" + "+" + user_info_array.get(4));
+            }
         }
 
         // Language
@@ -77,7 +93,7 @@ public class profile_editor_activity extends AppCompatActivity {
         cancelButton.setOnClickListener(view -> leave());
         updateButton.setOnClickListener(view -> {
             // Update changes. do SQL stuff
-            leave();
+            update();
         });
     }
 
@@ -138,5 +154,56 @@ public class profile_editor_activity extends AppCompatActivity {
         }
 
         //End Write and Read data with URL
+    }
+
+    public void update() {
+        String[] field = new String[11];
+        field[0] = "self_id";
+        field[1] = "username";
+        field[2] = "person_name";
+        field[3] = "time_zone";
+        field[4] = "email";
+        field[5] = "primary_language";
+        field[6] = "DOB";
+        field[7] = "city";
+        field[8] = "country";
+        field[9] = "phone";
+        field[10] = "Pfp";
+
+        //Creating array for data
+        String[] data = new String[11];
+        data[0] = user_info_array.get(0);
+        data[1] = user_info_array.get(1);
+        data[2] = user_info_array.get(2);
+        data[3] = user_info_array.get(4);
+        data[4] = user_info_array.get(5);
+        data[5] = user_info_array.get(6);
+        data[6] = user_info_array.get(7);
+        data[7] = user_info_array.get(8);
+        data[8] = user_info_array.get(9);
+        data[9] = user_info_array.get(10);
+        data[10] = user_info_array.get(12);
+
+        PutData putData = new PutData("http://ec2-44-202-164-77.compute-1.amazonaws.com/SendProfileUpdate.php", "POST", field, data, "string");
+        if (putData.startPut()) {
+            if (putData.onComplete()) {
+                //mProgressBar.setVisibility(View.GONE);
+                String result = putData.getResult();
+
+                if (result.equals("Profile Update Success")) {
+                    System.out.println(result);
+                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                    leave();
+                } else {
+                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                    System.out.println(result);
+                }
+
+
+                //End ProgressBar (Set visibility to GONE)
+                //Log.i("PutData", result);
+
+            }
+        }
     }
 }

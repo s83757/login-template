@@ -65,7 +65,7 @@ public class SignUp extends AppCompatActivity {
                                 if (putData.onComplete()) {
                                     signUpProgressBar.setVisibility(View.GONE);
                                     String result = putData.getResult();
-                                    if (result == "Sign Up Success") {
+                                    if (result.equals("Sign Up Success")) {
                                         System.out.println(result);
                                         Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(getApplicationContext(), LoginActivity2.class);
