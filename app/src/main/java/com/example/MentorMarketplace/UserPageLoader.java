@@ -49,7 +49,7 @@ public class UserPageLoader extends Fragment {
         loaded_profile_rating = view.findViewById(R.id.loaded_profile_rating);
         loaded_profile_bio = view.findViewById(R.id.loaded_profile_bio);
         loaded_profile_socials = view.findViewById(R.id.loaded_profile_socials);
-        loaded_profile_teach_language = view.findViewById(R.id.@#$#$$$%@^)
+        // loaded_profile_teach_language = view.findViewById(R.id.@#$#$$$%@^)
 
         String[] current_user_info = user_info.get(current_user);
 
