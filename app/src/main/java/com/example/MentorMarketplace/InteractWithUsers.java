@@ -102,7 +102,7 @@ public class InteractWithUsers extends AppCompatActivity {
 
     public void searchUsers() {
         //replace info in fragment2
-        boolean pass = getData("1", "5", timezone_filter, language_filter);
+        boolean pass = getData("1", "5", timezone_filter, language_filter, language_filter);
 
         if (pass) {
             replaceFragment(new UserPageLoader());
@@ -116,25 +116,33 @@ public class InteractWithUsers extends AppCompatActivity {
 
     }
 
-    public boolean getData(String self_id, String rating, String timezone, String primary_language) {
+    public boolean getData(String self_id, String rating, String time_zone, String primary_language, String language_to_teach) {
         //Starting Write and Read data with URL
         //Creating array for parameters
-        String[] field = new String[4];
+        String[] field = new String[5];
         field[0] = "self_id";
         field[1] = "rating";
         field[2] = "time_zone";
         field[3] = "primary_language";
+        field[4] = "language_to_teach";
         //Creating array for data
-        String[] data = new String[4];
+        String[] data = new String[5];
         data[0] = self_id;
         data[1] = rating;
-        data[2] = timezone;
+        data[2] = time_zone;
         data[3] = primary_language;
+        data[4] = language_to_teach;
+        for (String p : data) {
+            System.out.println(p);
+        }
+
         PutData putData = new PutData("http://ec2-44-202-164-77.compute-1.amazonaws.com/GetMatchingUsers.php", "POST", field, data, "string");
         if (putData.startPut()) {
             if (putData.onComplete()) {
                 //mProgressBar.setVisibility(View.GONE);
                 String result = putData.getResult();
+                System.out.println("YOOOOOOOO");
+                System.out.println(result);
 
                 // Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
 

@@ -76,14 +76,15 @@ class DataBase
         }
     }
 
-    function getMatchingUsers($table, $self_id, $rating, $timezone, $primary_language, $language_to_teach)
+    function getMatchingUsers($table, $self_id, $rating, $time_zone, $primary_language, $language_to_teach)
         {
             $self_id = $this->prepareData($self_id);
             $rating = $this->prepareData($rating);
-            $timezone = $this->prepareData($timezone); // this is an int
+            $timezone = $this->prepareData($time_zone); // this is an int
             $primary_language = $this->prepareData($primary_language);
             $language_to_teach = $this->prepareData($language_to_teach);
-            $this->sql = "select * from " . $table . " where rating >= " . $rating . " and time_zone = " . $timezone . " and primary_language = '" . $primary_language . "' and language_to_teach = " . $language_to_teach . " and id != " . $self_id;
+
+            $this->sql = "select * from " . $table . " where rating >= " . $rating . " and time_zone = " . $time_zone . " and primary_language = '" . $primary_language . "' and language_to_teach = '" . $language_to_teach . "' and id != " . $self_id;
             $result = mysqli_query($this->connect, $this->sql);
             if ($result == false) {
                 echo "Get matching users failure";

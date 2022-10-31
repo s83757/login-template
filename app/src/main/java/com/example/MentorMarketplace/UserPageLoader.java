@@ -53,6 +53,10 @@ public class UserPageLoader extends Fragment {
 
         String[] current_user_info = user_info.get(current_user);
 
+        System.out.println("Woah!");
+        for (String p : current_user_info) {
+            System.out.println(p);
+        }
         loaded_profile_name.setText("Name: " + current_user_info[2]);
         if (current_user_info[4].charAt(0) == '-') {
             loaded_profile_time_zone.setText("Time zone: UTC-" + current_user_info[4]);
