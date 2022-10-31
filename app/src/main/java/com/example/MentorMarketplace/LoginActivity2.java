@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.example.MentorMarketplace.IdManager;
 
 public class LoginActivity2 extends AppCompatActivity {
     private EditText mEmailView, mPasswordView;

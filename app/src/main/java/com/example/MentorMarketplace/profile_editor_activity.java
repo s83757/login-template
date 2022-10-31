@@ -50,7 +50,7 @@ public class profile_editor_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_editor);
 
-        getData("1");
+        getData("5");
 
         Button cancelButton = (Button) findViewById(R.id.cancel_profile_edit);
         Button updateButton = (Button) findViewById(R.id.update_profile_button);
@@ -63,7 +63,7 @@ public class profile_editor_activity extends AppCompatActivity {
         EditText city_editor = findViewById(R.id.editTextCity);
         EditText phone_editor = findViewById(R.id.editTextPhone);
         EditText bio_editor = findViewById(R.id.editTextBio);
-
+        System.out.println(user_info_array);
         /* Load set values into the profile editor */
 
         // Name

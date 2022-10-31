@@ -64,7 +64,8 @@ class DataBase
         $username = $this->prepareData($username);
         $password = $this->prepareData($password);
         $email = $this->prepareData($email);
-        $password = password_hash($password, PASSWORD_DEFAULT);
+        //$password = password_hash($password, PASSWORD_DEFAULT);
+        $password = $this->prepareData($password_hash);
         $this->sql =
             "INSERT INTO " . $table . " (username, email, user_password) VALUES ('" . $username. "','" . $email . "','" . $password . "')";
         if (mysqli_query($this->connect, $this->sql)) {

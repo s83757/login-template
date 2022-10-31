@@ -13,7 +13,7 @@
         <entry key="app/src/main/res/layout-w936dp/activity_login.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/activity_app_settings.xml" value="0.4895833333333333" />
         <entry key="app/src/main/res/layout/activity_find_other_users2.xml" value="0.27704147071398033" />
-        <entry key="app/src/main/res/layout/activity_interact_with_users.xml" value="0.16666666666666666" />
+        <entry key="app/src/main/res/layout/activity_interact_with_users.xml" value="0.21" />
         <entry key="app/src/main/res/layout/activity_logged_in_center.xml" value="0.21376656690893545" />
         <entry key="app/src/main/res/layout/activity_logged_out_center.xml" value="0.27393162393162396" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.48020833333333335" />
@@ -25,7 +25,7 @@
         <entry key="app/src/main/res/layout/activity_rick_roll.xml" value="0.5125" />
         <entry key="app/src/main/res/layout/activity_scrolling_editor_test.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.42496793501496366" />
-        <entry key="app/src/main/res/layout/activity_title_screen.xml" value="0.16337890625" />
+        <entry key="app/src/main/res/layout/activity_title_screen.xml" value="0.25" />
         <entry key="app/src/main/res/layout/app_settings.xml" value="0.5" />
         <entry key="app/src/main/res/layout/content_scrolling.xml" value="0.25" />
         <entry key="app/src/main/res/layout/drop_down_layout_xml.xml" value="0.23428815733219324" />
