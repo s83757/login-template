@@ -102,7 +102,8 @@ public class InteractWithUsers extends AppCompatActivity {
 
     public void searchUsers() {
         //replace info in fragment2
-        boolean pass = getData("1", "5", timezone_filter, language_filter, language_filter);
+        boolean pass = getData(((MyApplication) this.getApplication()).getSelf_id()
+                , "5", timezone_filter, language_filter, language_filter);
 
         if (pass) {
             replaceFragment(new UserPageLoader());

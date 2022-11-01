@@ -51,7 +51,7 @@ public class profile_editor_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_editor);
 
-        getData("5");
+        getData(((MyApplication) this.getApplication()).getSelf_id());
 
         Button cancelButton = (Button) findViewById(R.id.cancel_profile_edit);
         Button updateButton = (Button) findViewById(R.id.update_profile_button);

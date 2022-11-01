@@ -73,7 +73,7 @@ public class LoginActivity2 extends AppCompatActivity {
                             String[] result2 = result.split("!", 2);
 
                             if (result2[0].equals("Login Success")) {
-
+                                ((MyApplication) this.getApplication()).setSelf_id(result2[1]);
                                 //System.out.print("XXXXXXX");
 
                                 System.out.println(result);
