@@ -19,6 +19,7 @@ public class UserPageLoader extends Fragment {
     private ImageView loaded_profile_pic;
     private TextView loaded_profile_name;
     private TextView loaded_profile_languages;
+    private TextView loaded_profile_mentor_language;
     private TextView loaded_profile_time_zone;
     private TextView loaded_profile_rating;
     private TextView loaded_profile_bio;
@@ -44,7 +45,8 @@ public class UserPageLoader extends Fragment {
 
         loaded_profile_pic = view.findViewById(R.id.loaded_profile_pic);
         loaded_profile_name = view.findViewById(R.id.loaded_profile_name);
-        loaded_profile_languages = view.findViewById(R.id.loaded_profile_languages);
+        loaded_profile_languages = view.findViewById(R.id.loaded_profile_primary_language);
+        loaded_profile_mentor_language = view.findViewById(R.id.loaded_profile_mentor_language);
         loaded_profile_time_zone = view.findViewById(R.id.loaded_profile_time_zone);
         loaded_profile_rating = view.findViewById(R.id.loaded_profile_rating);
         loaded_profile_bio = view.findViewById(R.id.loaded_profile_bio);
@@ -66,10 +68,10 @@ public class UserPageLoader extends Fragment {
         }
 
         loaded_profile_languages.setText("Languages: " + current_user_info[6]);
+        loaded_profile_mentor_language.setText("Mentor Language: " + current_user_info[16]);
         loaded_profile_rating.setText("Rating: " + current_user_info[14]);
         loaded_profile_bio.setText("Bio: " + current_user_info[13]);
         loaded_profile_socials.setText("Socials: " + current_user_info[5]);
-        loaded_profile_socials.setText("Teaches: " + current_user_info[16]);
 
         return view;
     }

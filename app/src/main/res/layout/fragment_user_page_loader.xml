@@ -33,12 +33,22 @@
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/loaded_profile_languages"
+            android:id="@+id/loaded_profile_primary_language"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:text="Languages:"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/loaded_profile_mentor_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:text="Mentor Language:"
             android:textColor="@color/black"
             android:textSize="20sp" />
 

@@ -32,6 +32,7 @@ public class profile_editor_activity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         establishDropdown(getResources().getStringArray(R.array.Languages), findViewById(R.id.language_auto_complete));
+        establishDropdown(getResources().getStringArray(R.array.Languages), findViewById(R.id.mentor_language_auto_complete));
         establishDropdown(getResources().getStringArray(R.array.Time_Zones), findViewById(R.id.time_zone_auto_complete));
     }
     private int signum(int x) {
@@ -55,7 +56,9 @@ public class profile_editor_activity extends AppCompatActivity {
         Button cancelButton = (Button) findViewById(R.id.cancel_profile_edit);
         Button updateButton = (Button) findViewById(R.id.update_profile_button);
 
-        AutoCompleteTextView dropdown_languages = findViewById(R.id.language_auto_complete);
+        AutoCompleteTextView dropdown_primary_language = findViewById(R.id.language_auto_complete);
+        AutoCompleteTextView dropdown_mentor_language = findViewById(
+                R.id.mentor_language_auto_complete);
         AutoCompleteTextView dropdown_timezones = findViewById(R.id.time_zone_auto_complete);
 
         EditText name_editor = findViewById(R.id.editTextName);
@@ -88,7 +91,11 @@ public class profile_editor_activity extends AppCompatActivity {
 
         // Language
         if (!user_info_array.get(6).equals("null")) {
-            dropdown_languages.setText(user_info_array.get(6));
+            dropdown_primary_language.setText(user_info_array.get(6));
+        }
+        // Mentor Language
+        if (!user_info_array.get(16).equals("null")) {
+            dropdown_mentor_language.setText(user_info_array.get(16));
         }
         // City
         if (!user_info_array.get(8).equals("null")) {
