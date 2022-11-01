@@ -59,10 +59,10 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="294dp"
-        android:layout_height="296dp"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:contentDescription="Logo"
-        android:src="@drawable/mentormarketplacelogo1__1_"
+        android:src="@mipmap/main_logo_foreground"
         app:layout_constraintBottom_toTopOf="@+id/goLoginButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
