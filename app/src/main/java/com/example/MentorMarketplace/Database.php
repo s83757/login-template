@@ -121,7 +121,7 @@ class DataBase
             return json_encode($UsersData);
         }
         //mysqli_close();
-        function sendProfileUpdate($table, $self_id, $username, $person_name, $time_zone, $email, $primary_language, $DOB, $city, $country, $phone, $Pfp, $Bio)
+        function sendProfileUpdate($table, $self_id, $username, $person_name, $time_zone, $email, $primary_language, $DOB, $city, $country, $phone, $Pfp, $Bio, $language_to_teach)
             {
                 $self_id = $this->prepareData($self_id);
                 $username = $this->prepareData($username);
@@ -135,10 +135,11 @@ class DataBase
                 $phone = $this->prepareData($phone);
                 $Pfp = $this->prepareData($Pfp);
                 $Bio = $this->prepareData($Bio);
+                $language_to_teach = $this->prepareData($language_to_teach);
 
                 //$this->backup_query = "select * from " . $table . " Where id = '" . $self_id . "'";
                 //$backup = mysqli_fetch_all(mysqli_query($this->connect, $this->backup_query), MYSQLI_NUM);
-                $query = "UPDATE " . $table . " SET username = '" . $username . "', person_name = '" . $person_name . "', time_zone = '" . $time_zone . "', email = '" . $email . "', primary_language = '" . $primary_language . "', DOB = '" . $DOB . "', city = '" . $city . "', country = '" . $country . "', phone = '" . $phone . "', Pfp = '" . $Pfp . "', Bio = '" . $Bio . "'  WHERE id = " . $self_id;
+                $query = "UPDATE " . $table . " SET username = '" . $username . "', person_name = '" . $person_name . "', time_zone = '" . $time_zone . "', email = '" . $email . "', primary_language = '" . $primary_language . "', DOB = '" . $DOB . "', city = '" . $city . "', country = '" . $country . "', phone = '" . $phone . "', Pfp = '" . $Pfp . "', Bio = '" . $Bio . "', language_to_teach = '" . $language_to_teach .  "'  WHERE id = " . $self_id;
                 //echo $query;
                 $this->sql = $query;
                 $result = false;
