@@ -48,15 +48,17 @@ class DataBase
         $row = mysqli_fetch_assoc($result);
         //echo mysqli_num_rows($result);
         //echo $row;
+        $id = -1;
         if (mysqli_num_rows($result) != 0) {
             $dbemail = $row['email'];
             $dbpassword = $row['user_password'];
             if ($dbemail == $email && $password == $dbpassword) {
                 $login = true;
+                $id = $result[0];
             } else $login = false;
         } else $login = false;
 
-        return $login;
+        return json_encode(array($login, $id));
     }
 
     function signUp($table, $username, $email, $password)
