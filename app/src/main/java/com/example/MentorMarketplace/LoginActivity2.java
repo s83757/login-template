@@ -70,8 +70,9 @@ public class LoginActivity2 extends AppCompatActivity {
                             System.out.println(result);
 
                             //System.out.println("YYYYYY");
+                            String[] result2 = result.split("!", 2);
 
-                            if (result.equals("Login Success")) {
+                            if (result2[0].equals("Login Success")) {
 
                                 //System.out.print("XXXXXXX");
 

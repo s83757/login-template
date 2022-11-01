@@ -54,7 +54,7 @@ class DataBase
             $dbpassword = $row['user_password'];
             if ($dbemail == $email && $password == $dbpassword) {
                 $login = true;
-                $id = $result[0];
+                $id = $row['id'];
             } else $login = false;
         } else $login = false;
 
